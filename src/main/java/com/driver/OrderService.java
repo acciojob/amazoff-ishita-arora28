@@ -15,7 +15,7 @@ public class OrderService{
         orderRepository.addPartner(partnerId);
 
     }
-    public void addOrderPartnerId(String orderId,String partnerId){
+    public void addOrderPartnerPair(String orderId,String partnerId){
         orderRepository.addOrderPartnerPair(orderId,partnerId);
     }
     public Order getOrderById(String orderId){
