@@ -65,7 +65,7 @@ public class OrderRepository{
     public int getOrdersLeftAfterGivenTimeByPartnerId(int time,String partnerId){
         int count=0;
         List<String> orders=partnerOrderDb.get(partnerId);
-        for(String orderId:orders){
+        for(String orderId :orders){
                int deliveryTime= orderDb.get(orderId).getDeliveryTime();
                if(deliveryTime > time)
                     count++;
@@ -85,7 +85,7 @@ public class OrderRepository{
     }
     public void deletePartnerById(String partnerId){
         deliveryPartnerDb.remove(partnerId);
-
+ 
         List<String> orders=partnerOrderDb.get(partnerId);
         partnerOrderDb.remove(partnerId);
         for(String o:orders){

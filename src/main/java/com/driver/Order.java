@@ -5,14 +5,14 @@ public class Order {
     private String id;
     private int deliveryTime;
 
-    public Order(String id, String deliveryTime) {
+    public Order(String id, String timeString) {
 
         // The deliveryTime has to converted from string to int and then stored in the attribute
         //deliveryTime  = HH*60 + MM
         this.id=id;
-        String[] time=deliveryTime.split(":");
-        int convertDelTime=Integer.parseInt(time[0])*60+Integer.parseInt(time[1]);
-        this.deliveryTime=convertDelTime;
+        String[] time=timeString.split(":");
+        this.deliveryTime=Integer.parseInt(time[0])*60+Integer.parseInt(time[1]);
+        
         
 
     }
