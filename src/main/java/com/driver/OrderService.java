@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderService{
     @Autowired
-    OrderRepository orderRepository;
+    OrderRepository orderRepository=new OrderRepository();
+
     public void addOrder(Order o1){
         orderRepository.addOrder(o1);
     }
@@ -46,19 +47,11 @@ public class OrderService{
 
     }
     public int getOrdersLeftAfterGivenTimeByPartnerId(String deliveryTime, String partnerId){
-        String[] time=deliveryTime.split(":");
-        int convertedTime=Integer.parseInt(time[0])*60+Integer.parseInt(time[1]);
-        return orderRepository.getOrdersLeftAfterGivenTimeByPartnerId(convertedTime,partnerId);
+        
+        return orderRepository.getOrdersLeftAfterGivenTimeByPartnerId(deliveryTime,partnerId);
     }
     public String getLastDeliveryTimeByPartnerId(String partnerId){
-        int time=orderRepository.getLastDeliveryTimeByPartnerId(partnerId);
-        String hh=String.valueOf(time/60);
-         String mm=String.valueOf(time%60);
-         if(hh.length()<2)
-            hh='0'+ hh;
-        if(mm.length()<2)
-            mm='0'+mm;
-        return hh+':'+mm;
+       return orderRepository.getLastDeliveryTimeByPartnerId(partnerId);
 
     }
     public void deletePartnerById(String partnerId){
