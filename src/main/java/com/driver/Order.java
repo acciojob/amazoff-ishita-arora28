@@ -16,12 +16,7 @@ public class Order {
         
 
     }
-    public void setId(String id){
-        this.id=id;
-    }
-    public void setDeliveryTime(int deliveryTime){
-        this.deliveryTime=deliveryTime;
-    }
+
     public String getId() {
         return id;
     }
